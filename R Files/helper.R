@@ -25,6 +25,3 @@ fplot %<>%
   select(Series, IMF, Values) %>% 
   spread(IMF, Values)
 
-cols_radar <- reactive({
-  grep(paste(input$region1, input$region2, sep = "|"), names(fplot))
-})
