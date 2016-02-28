@@ -17,7 +17,7 @@ fluidPage(
   ),
   
   mainPanel(
-    chartJSRadarOutput('MyPlot')
+        chartJSRadarOutput('MyPlot', width="450", height="300")
   )
 )
 
