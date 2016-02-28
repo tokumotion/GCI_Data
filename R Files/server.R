@@ -4,10 +4,6 @@ library(radarchart); library(RCurl)
 
 source('~/GitHub/GCI_Data/R Files/helper.R')
 
-cols_radar <- reactive({
-  grep(paste(input$region1, input$region2, sep = "|"), names(fplot))
-})
-
 server <- function(input, output){
   output$MyPlot <- renderChartJSRadar({
     chartJSRadar(fplot[, c(1, cols_radar)], showToolTipLabel = TRUE)
