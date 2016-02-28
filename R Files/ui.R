@@ -2,18 +2,20 @@
 
 library(shiny); library(radarchart)
 
-ui <- fluidPage(
+fluidPage(
   headerPanel('Competitiveness Analysis by Region'),
+  
   sidebarPanel(
     selectInput(
       'region1', 'Choose the first region you want to analyse', 
-      unique(entities$`Region (IMF, April 2015)`)
+      colnames(fplot[2:ncol(fplot)])
     ),
     selectInput(
       'region2', 'Choose the second region you want to analyse', 
-      unique(entities$`Region (IMF, April 2015)`)
+      colnames(fplot[2:ncol(fplot)])
     )
   ),
+  
   mainPanel(
     h1('P'),
     chartJSRadarOutput('MyPlot')

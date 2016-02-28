@@ -1,7 +1,7 @@
 # helper.R
 
-load('~/GitHub/GCI_Data/Data/values.RData')
-load('~/GitHub/GCI_Data/Data/entities.RData')
+load('GCI_Data/Data/values.RData')
+load('GCI_Data/Data/entities.RData')
 
 fplot <- values %>% 
   filter(grepl("^\\d+\\w+\\s", values$`Series unindented`),
