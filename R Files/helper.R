@@ -1,7 +1,12 @@
 # helper.R
 
-load('./Data/values.RData')
-load('./Data/entities.RData')
+library(rdrop2)
+
+token <- readRDS('./Data/droptoken.rds')
+drop_acc(dtoken = token)
+
+lapply(drop_search('RData', path = 'GCI_2015')$path, 
+       function (x) drop_get(x, local_file = './Data/'))
 
 fplot <- values %>% 
   filter(grepl("^\\d+\\w+\\s", values$`Series unindented`),
