@@ -30,7 +30,9 @@ server <- function(input, output){
   })
   
   cols_countryplot <- reactive({
-    a <- unique(cplot$Country[grep(paste(input$country1, input$country2, sep = "|"), 
+    a <- unique(cplot$Country[grep(paste(input$country1, 
+                                         input$country2, 
+                                         sep = "|"), 
                          cplot$Entity)])
     grep(paste(a[1], a[2], sep = '|'), names(radarplot))
   })
@@ -40,3 +42,4 @@ server <- function(input, output){
                  showToolTipLabel = TRUE, maxScale = 7)
   })
 }
+
