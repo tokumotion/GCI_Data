@@ -1,12 +1,11 @@
 # helper.R
 
-library(rdrop2)
+library(dplyr); library(tidyr); library(stringr); library(magrittr)
 
-token <- readRDS('./Data/droptoken.rds')
-drop_acc(dtoken = token)
-
-lapply(drop_search('RData', path = 'GCI_2015')$path, 
-       function (x) drop_get(x, local_file = './Data/'))
+# Load required data for analysis from local
+load('../Data/entities.RData')
+load('../Data/values.RData')
+load('../Data/comp_tidy.RData')
 
 fplot <- values %>% 
   filter(grepl("^\\d+\\w+\\s", values$`Series unindented`),
