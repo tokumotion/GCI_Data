@@ -1,7 +1,7 @@
 # server.R
-library(ggplot2); library(dplyr); library(tidyr); library(stringr); library(magrittr)
+library(dplyr); library(tidyr); library(stringr); library(magrittr)
 
-source('~/GitHub/GCI_Data/R Files/helper.R')
+source('./R Files/helper.R', local = TRUE)
 
 server <- function(input, output){
 
@@ -30,13 +30,9 @@ server <- function(input, output){
   })
   
   cols_countryplot <- reactive({
-    a <- unique(cplot$Country[grep(paste(input$country1, 
-                                         input$country2, 
-                                         sep = "|"), 
-                         cplot$Entity)])
-    grep(paste(a[1], a[2], sep = '|'), names(radarplot))
+    sapply(entities$Country[grep(paste(input$country1, input$country2, sep = "|"), 
+                                 entities$Entity)], function (x) grep(x, names(radarplot)))
   })
-  
   output$CountryPlot <- renderChartJSRadar({
     chartJSRadar(radarplot[, c(1, cols_countryplot())], 
                  showToolTipLabel = TRUE, maxScale = 7)
