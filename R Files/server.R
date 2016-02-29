@@ -12,4 +12,31 @@ server <- function(input, output){
   output$MyPlot <- renderChartJSRadar({
     chartJSRadar(fplot[, c(1, cols_radar())], showToolTipLabel = TRUE, maxScale = 7)
   })
+  
+  cols_country <- reactive({
+    unique(cplot[which(cplot$`Region (IMF, April 2015)` == input$region), 7])
+    })
+  
+  output$select1 <- renderUI({
+    selectInput('country1', 
+                'Choose which is the first country',
+                cols_country())
+  })
+  
+  output$select2 <- renderUI({
+    selectInput('country2', 
+                'Choose which is the second country',
+                cols_country())
+  })
+  
+  cols_countryplot <- reactive({
+    a <- unique(cplot$Country[grep(paste(input$country1, input$country2, sep = "|"), 
+                         cplot$Entity)])
+    grep(paste(a[1], a[2], sep = '|'), names(radarplot))
+  })
+  
+  output$CountryPlot <- renderChartJSRadar({
+    chartJSRadar(radarplot[, c(1, cols_countryplot())], 
+                 showToolTipLabel = TRUE, maxScale = 7)
+  })
 }

@@ -25,3 +25,5 @@ fplot %<>%
   select(Series, IMF, Values) %>% 
   spread(IMF, Values)
 
+cplot <- regionplot %>% 
+  right_join(., entities, by = "Country")
