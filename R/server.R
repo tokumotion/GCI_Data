@@ -1,7 +1,4 @@
 # server.R
-library(dplyr); library(tidyr); library(stringr); library(magrittr)
-
-source('./R Files/helper.R', local = TRUE)
 
 server <- function(input, output){
 

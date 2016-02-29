@@ -2,8 +2,8 @@ name: GCI_2015
 account: tokumotion
 server: shinyapps.io
 appId: 86118
-bundleId: 383125
+bundleId: 383361
 url: https://tokumotion.shinyapps.io/GCI_2015/
-when: 1456725019.50531
+when: 1456748803.02752
 asMultiple: FALSE
 asStatic: FALSE
