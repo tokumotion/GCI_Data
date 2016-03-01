@@ -3,9 +3,11 @@
 library(dplyr); library(tidyr); library(stringr); library(magrittr)
 
 # Load required data for analysis from local
+
 load('../Data/entities.RData')
 load('../Data/values.RData')
 load('../Data/comp_tidy.RData')
+
 
 fplot <- values %>% 
   filter(grepl("^\\d+\\w+\\s", values$`Series unindented`),
