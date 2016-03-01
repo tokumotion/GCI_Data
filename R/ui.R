@@ -2,7 +2,7 @@
 
 library(shiny); library(radarchart)
 
-source('./helper.R', keep.source = TRUE)
+source('../helper.R', keep.source = TRUE)
 
 navbarPage("Global Competitive Index 2015",
            tabPanel('Regional Comparison',
