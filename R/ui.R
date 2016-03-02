@@ -2,7 +2,7 @@
 
 library(shiny); library(radarchart)
 
-source('../helper.R', keep.source = TRUE)
+source('../R/helper.R', keep.source = TRUE)
 
 navbarPage("Global Competitive Index 2015",
            tabPanel('Regional Comparison',
@@ -11,12 +11,12 @@ navbarPage("Global Competitive Index 2015",
                       sidebarPanel(
                         selectInput(
                           'region1', 'Choose the first region you want to analyse', 
-                          colnames(fplot[2:ncol(fplot)]),
+                          colnames(fplot)[2:ncol(fplot)],
                           width = 300
                         ),
                         selectInput(
                           'region2', 'Choose the second region you want to analyse', 
-                          colnames(fplot[2:ncol(fplot)]),
+                          colnames(fplot)[2:ncol(fplot)],
                           width = 300
                         )
                       ),
