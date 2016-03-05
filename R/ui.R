@@ -32,7 +32,7 @@ navbarPage("Global Competitive Index 2015",
                       sidebarPanel(
                         selectInput(
                           'region', 'Choose which region you want to analyze', 
-                          unique(cplot$`Region (IMF, April 2015)`)[!is.na(unique(cplot$`Region (IMF, April 2015)`))]
+                          unique(cplot$Region..IMF..April.2015.)[!is.na(unique(cplot$Region..IMF..April.2015.))]
                         ),
                         uiOutput('select1'),
                         uiOutput('select2')

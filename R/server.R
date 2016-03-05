@@ -11,7 +11,7 @@ server <- function(input, output){
   })
   
   cols_country <- reactive({
-    unique(cplot[which(cplot$`Region (IMF, April 2015)` == input$region), 7])
+    unique(cplot[which(cplot$Region..IMF..April.2015. == input$region), 7])
     })
   
   output$select1 <- renderUI({
